@@ -1,0 +1,24 @@
+h1{
+    color: red;
+    text-align: center; 
+}
+/*qualquer tag que tenha class='agrupamentos'*/
+.agrupamentos{
+    background-color: yellowgreen;
+}
+/*qualuqer div que tenha class="agrupamentos"*/
+div.agrupamentos{
+    border: 1px solid black;
+    clear:both;
+}
+/*qualquer paragrafo que esteja dentro de qualquer div cuja classe é agrupMENTO*/
+div.agrupamentos p{
+    font-size: 8px;
+    color:aqua
+}
+/*qualquer tag img que tenga o id logo*/
+img#logo{
+    float: right;
+
+    
+}

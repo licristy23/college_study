@@ -1,0 +1,99 @@
+1. Programa que resolve o exercício 1.2-2 do Cormen.
+
+import time
+
+def insert_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        L = arr[:mid]
+        R = arr[mid:]
+
+        merge_sort(L)  # ordenar a metade esquerda
+        merge_sort(R)  # ordenar a metade direita
+
+        i = j = k = 0
+
+        # Mescla as metades ordenadas
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Copia os elementos restantes, se tiver
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+
+if __name__ == "__main__":
+    n_values_insert_sort_faster = []
+
+    # Loop para testar valores de 'n' de 0 a 100
+    for n in range(0, 100):
+        arr = list(range(n, 0, -1))  # Cria uma lista invertida de 0 a 'n' para o pior caso do Insert Sort
+        start_time = time.time()
+        insert_sort(arr)  
+        insert_sort_time = time.time() - start_time
+
+        arr = list(range(n, 0, -1))  
+        start_time = time.time()
+        merge_sort(arr)  
+        merge_sort_time = time.time() - start_time
+
+        # Compara os tempos de execução dos algoritmos e adiciona 'n' à lista se o Insert Sort for mais rápido
+        if insert_sort_time < merge_sort_time:
+            n_values_insert_sort_faster.append(n)
+
+    print("Valores em que Insert Sort é mais rápido que o Merge Sort:")
+    print(n_values_insert_sort_faster)
+
+
+    2. Programa que resolve o exercício 1.2-3 do Cormen.
+
+    import math
+
+def first_time(n):
+    return 100 * n**2
+
+def second_time(n):
+    return 2**n
+
+def find_smallest_n():
+    n = 1
+    while True:
+        time_1 = first_time(n)
+        time_2 = second_time(n)
+
+        if time_1 <= time_2:
+            return n
+        n += 1
+
+def main():
+    smallest_n = find_smallest_n()
+    print(f"O menor valor de n é: {smallest_n}")
+
+if __name__ == "__main__":
+    main()
+
+
+3. Programa que imprime a tabela preenchida do problema 1-1 do Cormen.
+
+
