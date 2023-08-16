@@ -1,1 +1,1 @@
-#Repositório utilizado para mostrar as atividades da faculdade
+# Repositório utilizado para mostrar as atividades da faculdade
